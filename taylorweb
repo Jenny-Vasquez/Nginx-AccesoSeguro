@@ -1,0 +1,13 @@
+server {
+    listen 80;
+    listen [::]:80;
+    server_name taylorweb;  # O tu nombre de dominio o IP
+
+    root /var/www/taylorweb/html/Practica2;
+    index index.html index.htm index.nginx-debian.html;
+
+    location / {
+        try_files $uri $uri/ =404;  # Si no se encuentra el archivo, devuelve 404
+    }
+}
+
