@@ -28,7 +28,7 @@ Hemos configurado automáticamente una máquina virtual basada en Debian utiliza
        index index.html index.htm index.nginx-debian.html;
    
        location / {
-           try_files $uri $uri/ =404;  # Si no se encuentra el archivo, devuelve 404
+           try_files $uri $uri/ =404;  
        }
    }
     
@@ -96,10 +96,10 @@ Hemos configurado automáticamente una máquina virtual basada en Debian utiliza
        root /var/www/taylorweb/html/Practica2;
        index index.html index.htm;
 
-       ssl_certificate /etc/ssl/certs/taylorweb.crt;  # Certificado SSL
-       ssl_certificate_key /etc/ssl/private/taylorweb.key;  # Clave del certificado
+       ssl_certificate /etc/ssl/certs/taylorweb.crt; 
+       ssl_certificate_key /etc/ssl/private/taylorweb.key;  
 
-       ssl_protocols TLSv1.2 TLSv1.3;  # Protocolos de seguridad habilitados
+       ssl_protocols TLSv1.2 TLSv1.3; 
 
        location / {
            try_files $uri $uri/ =404;
