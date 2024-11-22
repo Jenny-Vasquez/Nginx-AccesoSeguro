@@ -30,20 +30,41 @@ Hemos configurado automáticamente una máquina virtual basada en Debian utiliza
    - Generación de certificados SSL para un servidor seguro.
    - Configuración de un directorio FTP en `/home/vagrant/ftp`.
 
-3. **Credenciales de Usuario**:
-   - Contraseña del usuario `vagrant` establecida en `jenny`.
+Como ya tenemos el archivo del servido configurado de la siguiente manera:
+server {
+    listen 80;
+    listen [::]:80;
+    server_name taylorweb;
 
-### Archivos Necesarios
+    root /var/www/taylorweb/html/Practica2;
+    index index.html index.htm index.nginx-debian.html;
 
-Los siguientes archivos deben estar en el directorio del proyecto para que la configuración sea exitosa:
+    location / {
+        try_files $uri $uri/ =404;  # Si no se encuentra el archivo, devuelve 404
+    }
+}
 
-- `taylorweb`: archivo de configuración de Nginx.
-- `vsftpd.conf`: archivo de configuración del servidor FTP.
 
-### Personalización
+Comprobaremos que nuestro servido funciona correctamente con 
+"sudo nginx -t"
+![Imagen9](imagenes_configuracion/9.png)
 
-- Podemosmodificar el archivo `Vagrantfile` para cambiar configuraciones como la IP privada o las redes expuestas.
-- Editaremos los archivos `taylorweb` y `vsftpd.conf` para ajustar las configuraciones según nuestras necesidades.
+Ahora porcederemos a configurar el cortafuegos previamente deberemos actualizar e installar Uncomplicated Firewall
+sudo apt update
+sudo apt install ufw 
+
+sudo ufw status
+
+sudo ufw allow ssh
+
+sudo ufw allow 'Nginx Full'
+
+sudo ufw delete allow 'Nginx HTTP'
+![Imagen10](imagenes_configuracion/10.png) 
+Activo el cortafuegos 
+sudo ufw enable
+![Imagen11](imagenes_configuracion/11.png) 
+
 ## IMAGENES DE LA CONFIGURACIÓN
 ![Imagen1](imagenes_configuracion/2.png)
 ![Imagen2](imagenes_configuracion/3.png)
