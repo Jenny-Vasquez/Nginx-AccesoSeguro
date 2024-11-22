@@ -1,4 +1,4 @@
-# Nginx-Autentificación
+# Nginx-Acceso Seguro
 
 Previamente la configuracion de nuestra maquina debe estar correcta, para ello hemos realizado los siguientes pasos.
 
