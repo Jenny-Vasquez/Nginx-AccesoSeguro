@@ -1,6 +1,4 @@
-# Nginx-Acceso Seguro
-
-Previamente la configuracion de nuestra maquina debe estar correcta, para ello hemos realizado los siguientes pasos.
+# Nginx-Autentificación
 
 ## Configuración de Máquina Virtual con Debian, Nginx y FTPS
 
@@ -10,6 +8,50 @@ Hemos configurado automáticamente una máquina virtual basada en Debian utiliza
 - Implementación de un servidor FTPS seguro con **vsftpd**.
 - Clonación de un repositorio Git en nuestro caso https://github.com/Jenny-Vasquez/Practica2.git
 
+Para este apartado de autentidicacion verificaremos si el paquete esta instalado. 
+ ```bash
+   dpkg -l | grep openssl
+   ```
+![Imagen21](imagenes_configuracion/21.png)
+
+Creo los usarios con los siguientes comandos.
+ ```bash
+   sudo sh -c "echo -n 'jenny:' >> /etc/nginx/.htpasswd"
+   ```
+ ```bash
+   sudo sh -c "openssl passwd -apr1 >> /etc/nginx/.htpasswd"
+   ```
+ ```bash
+   sudo sh -c "echo -n 'vasquez:' >> /etc/nginx/.htpasswd"
+   ```
+ ```bash
+   sudo sh -c "openssl passwd -apr1 >> /etc/nginx/.htpasswd"
+   ```
+Verifico que los usuarios se crearon correctamente
+ ```bash
+   cat /etc/nginx/.htpasswd
+   ```
+![Imagen22](imagenes_configuracion/22.png)
+Modifico el archivo para añadir la autenticación y reinicio el servicio:
+ ```bash
+   sudo nano /etc/nginx/sites-available/taylorweb
+   ```
+![Imagen23](imagenes_configuracion/23.png)
+
+ ```bash
+   sudo nginx -t
+   ```
+![Imagen24](imagenes_configuracion/24.png)
+
+
+
+
+
+
+
+# Nginx-Acceso Seguro
+
+Previamente la configuracion de nuestra maquina debe estar correcta, para ello hemos realizado los siguientes pasos.
 
 ### 1. Instalación y Configuración de Nginx
 1. **Vagrant** instalado en tu sistema.
