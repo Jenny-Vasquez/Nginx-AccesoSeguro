@@ -59,7 +59,7 @@ sudo cat /var/log/nginx/access.log | tail -2
  ![Imagen31](imagenes_configuracion/31.png)
 
  7. Se incluyen restricciones de IP para permitir el acceso solo desde ciertas direcciones IP.
- 8. 
+  
  ![Imagen32](imagenes_configuracion/32.png)
 
   Error de acceso desde ip incorrecta 
