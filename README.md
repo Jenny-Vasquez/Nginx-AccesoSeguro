@@ -43,8 +43,18 @@ Modifico el archivo para añadir la autenticación y reinicio el servicio:
    ```
 ![Imagen24](imagenes_configuracion/24.png)
 
+Accedo a taylorweb y me sale la siguiente información:
 
+![Imagen25](imagenes_configuracion/24.png)  ![Imagen27](imagenes_configuracion/24.png)
 
+Ahora puedo visualizar la pagina.
+
+A continuación compruebo los logs de erroy y acceso:
+ ```bash
+sudo cat /var/log/nginx/error.log | tail -2
+sudo cat /var/log/nginx/access.log | tail -2
+   ```
+![Imagen28](imagenes_configuracion/28.png)  ![Imagen29](imagenes_configuracion/29.png)
 
 
 
