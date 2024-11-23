@@ -58,8 +58,16 @@ sudo cat /var/log/nginx/access.log | tail -2
 
 Redirecciono la pagina para cuando acceda me aparezca la pagina de contact
  ![Imagen30](imagenes_configuracion/30.png)
-  ![Imagen31](imagenes_configuracion/31.png)
+ ![Imagen31](imagenes_configuracion/31.png)
 
+ Añadimos restricciones de ip 
+ ![Imagen32](imagenes_configuracion/32.png)
+
+ Error de acceso desde ip incorrecta 
+
+  ![Imagen33](imagenes_configuracion/33.png)
+ 
+## Conclusión
 
 
 
