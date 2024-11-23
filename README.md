@@ -1,15 +1,85 @@
+# Nginx-Autentificación
+
+El proyecto consiste en configurar un servidor web seguro utilizando Nginx en una máquina virtual con Debian, implementando autenticación básica de usuarios y restricciones de acceso mediante direcciones IP. Además, se añadió la configuración para redirigir a los usuarios hacia una página específica cuando acceden al sitio web.
+
+1. Se verificó que el paquete openssl estuviera instalado, ya que es necesario para generar las contraseñas cifradas de los usuarios.Para este apartado de autentidicacion verificaremos si el paquete esta instalado.
+   
+ ```bash
+   dpkg -l | grep openssl
+   ```
+![Imagen21](imagenes_configuracion/21.png)
+
+2. Se crearon dos usuarios (jenny y vasquez) con contraseñas cifradas utilizando los comandos:
+ ```bash
+   sudo sh -c "echo -n 'jenny:' >> /etc/nginx/.htpasswd"
+   ```
+ ```bash
+   sudo sh -c "openssl passwd -apr1 >> /etc/nginx/.htpasswd"
+   ```
+ ```bash
+   sudo sh -c "echo -n 'vasquez:' >> /etc/nginx/.htpasswd"
+   ```
+ ```bash
+   sudo sh -c "openssl passwd -apr1 >> /etc/nginx/.htpasswd"
+   ```
+Verificamos que los usuarios se crearon correctamente
+
+ ```bash
+   cat /etc/nginx/.htpasswd
+   ```
+![Imagen22](imagenes_configuracion/22.png)
+
+3. Se modificó el archivo de configuración de Nginx (en sites-available/taylorweb) para añadir la autenticación básica, vinculando el archivo .htpasswd para que los usuarios se autentiquen antes de acceder al contenido.
+ ```bash
+   sudo nano /etc/nginx/sites-available/taylorweb
+   ```
+![Imagen23](imagenes_configuracion/23.png)
+
+ ```bash
+   sudo nginx -t
+   ```
+![Imagen24](imagenes_configuracion/24.png)
+
+4. Al intentar acceder al sitio web, se mostró un cuadro de autenticación básica pidiendo el usuario y la contraseña. Se verificó que la autenticación funcionara correctamente y se pudo acceder al contenido como se muestra a continuación.
+
+![Imagen25](imagenes_configuracion/24.png)  ![Imagen27](imagenes_configuracion/24.png)
+
+Ahora podemos visualizar la pagina.
+
+5. Se comprueban los logs de acceso y error de Nginx para verificar el correcto funcionamiento y registrar los accesos:
+   
+ ```bash
+sudo cat /var/log/nginx/error.log | tail -2
+sudo cat /var/log/nginx/access.log | tail -2
+   ```
+![Imagen28](imagenes_configuracion/28.png)  ![Imagen29](imagenes_configuracion/29.png)
+
+6. Redirección a Página de Contacto
+ ![Imagen30](imagenes_configuracion/30.png)
+ ![Imagen31](imagenes_configuracion/31.png)
+
+ 7. Se incluyen restricciones de IP para permitir el acceso solo desde ciertas direcciones IP.
+  
+ ![Imagen32](imagenes_configuracion/32.png)
+
+  Error de acceso desde ip incorrecta 
+
+  ![Imagen33](imagenes_configuracion/33.png)
+ 
+## Conclusión
+En este proyecto, configuramos un servidor web para que solo algunas personas pudieran ver las páginas. Lo hicimos de dos maneras:
+
+- Contraseñas
+
+- Direcciones IP
+
+De estas dos formas, podemos proteger las páginas de usuarios que no queremos que las vean, asegurándonos de que solo las personas correctas puedan acceder a ella.
+
+
+
 # Nginx-Acceso Seguro
 
 Previamente la configuracion de nuestra maquina debe estar correcta, para ello hemos realizado los siguientes pasos.
-
-## Configuración de Máquina Virtual con Debian, Nginx y FTPS
-
-Hemos configurado automáticamente una máquina virtual basada en Debian utilizando **Vagrant**. La configuración incluye:
-
-- Instalación de **Nginx** y configuración personalizada para un sitio web.
-- Implementación de un servidor FTPS seguro con **vsftpd**.
-- Clonación de un repositorio Git en nuestro caso https://github.com/Jenny-Vasquez/Practica2.git
-
 
 ### 1. Instalación y Configuración de Nginx
 1. **Vagrant** instalado en tu sistema.
