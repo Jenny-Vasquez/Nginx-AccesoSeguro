@@ -42,8 +42,8 @@ Verificamos que los usuarios se crearon correctamente
 
 4. Al intentar acceder al sitio web, se mostró un cuadro de autenticación básica pidiendo el usuario y la contraseña. Se verificó que la autenticación funcionara correctamente y se pudo acceder al contenido como se muestra a continuación.
 
-![Imagen25](imagenes_configuracion/24.png) 
-![Imagen27](imagenes_configuracion/24.png)
+![Imagen25](imagenes_configuracion/25.png) 
+![Imagen27](imagenes_configuracion/27.png)
 
 Ahora podemos visualizar la pagina.
 
