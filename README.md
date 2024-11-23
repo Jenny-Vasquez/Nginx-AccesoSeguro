@@ -56,6 +56,11 @@ sudo cat /var/log/nginx/access.log | tail -2
    ```
 ![Imagen28](imagenes_configuracion/28.png)  ![Imagen29](imagenes_configuracion/29.png)
 
+Redirecciono la pagina para cuando acceda me aparezca la pagina de contact
+ ![Imagen30](imagenes_configuracion/30.png)
+  ![Imagen31](imagenes_configuracion/31.png)
+
+
 
 
 
