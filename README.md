@@ -42,7 +42,8 @@ Verificamos que los usuarios se crearon correctamente
 
 4. Al intentar acceder al sitio web, se mostró un cuadro de autenticación básica pidiendo el usuario y la contraseña. Se verificó que la autenticación funcionara correctamente y se pudo acceder al contenido como se muestra a continuación.
 
-![Imagen25](imagenes_configuracion/24.png)  ![Imagen27](imagenes_configuracion/24.png)
+![Imagen25](imagenes_configuracion/24.png) 
+![Imagen27](imagenes_configuracion/24.png)
 
 Ahora podemos visualizar la pagina.
 
@@ -52,7 +53,8 @@ Ahora podemos visualizar la pagina.
 sudo cat /var/log/nginx/error.log | tail -2
 sudo cat /var/log/nginx/access.log | tail -2
    ```
-![Imagen28](imagenes_configuracion/28.png)  ![Imagen29](imagenes_configuracion/29.png)
+![Imagen28](imagenes_configuracion/28.png) 
+![Imagen29](imagenes_configuracion/29.png)
 
 6. Redirección a Página de Contacto
  ![Imagen30](imagenes_configuracion/30.png)
